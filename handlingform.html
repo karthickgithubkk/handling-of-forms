@@ -1,0 +1,152 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+
+</head>
+<body>
+    <form action="#" id="form">
+        <div>
+            <label for="username">username :</label>
+            <input type="text" name="username" id="username">
+        </div>
+        <hr>
+        <div class="radiosub">
+            <input type="radio" name="subject" id="english">
+            <label for="english">english</label>
+            <input type="radio" name="subject" id="maths">
+            <label for="maths">maths</label>
+            <input type="radio" name="subject" id="physics">
+            <label for="physics">physics</label>
+            <input type="radio" name="subject" id="Chemistry">
+            <label for="Chemistry">Chemistry</label>
+        </div>
+        <hr>
+        <div class="radio-subject">
+            <button type="submit" id="btn">submit</button>
+        </div>
+        <div class="Checksub">
+            
+            <input type="checkbox" name="ck-subject" id="english-Ck">
+            <label for="english">english</label>
+            <input type="checkbox" name="ck-subject" id="maths-Ck">
+            <label for="maths">maths</label>
+            <input type="checkbox" name="ck-subject" id="physics-Ck">
+            <label for="physics">physics</label>
+            <input type="checkbox" name="ck-subject" id="Chemistry-Ck">
+            <label for="Chemistry">Chemistry</label>
+        </div>
+        <hr>
+        <div class="radio-subject">
+            <button type="submit" id="btn">submit</button>
+        </div>
+        <hr>
+        <div class=" select">
+            <select name="select" id="select" >
+                <option value="">selected subject</option>
+                <option value="english">english</option>
+                <option value="maths">maths</option>
+                <option value="physics">physics</option>
+                <option value="Chemistry">Chemistry</option>
+            </select>
+        </div>
+    </form>
+    <p id="output"></p>
+    <p id="output1"></p>
+    <p id="output2"></p>
+    <p id="output3"></p>
+
+
+
+    <script>
+        const username = document.querySelector("#username");
+        console.log(username);
+        const btn= document.querySelector("#btn");
+        const output= document.querySelector("#output");
+        const output1= document.querySelector("#output1");
+        let radiosubject= document.querySelector(".radiosub");
+        console.log(radiosubject);
+        let checksubject= document.querySelector(".Checksub");
+        const output2= document.querySelector("#output2");
+        const output3 = document.querySelector("#output3")
+        const selectedSub = document.querySelector("select")
+
+          // handling of text//
+        username.addEventListener("change",function (e) {
+            e.preventDefault();
+            output.textContent=  `username is ${username.value}`;
+        });
+          // handling of radio button//
+        radiosubject.addEventListener("change",function(e) {
+            e.preventDefault();
+            console.log(e);
+            console.log(e.target);
+            //    console.log(e.target.id);
+               //or
+               let target = e.target;
+               console.log(target.id);
+               let result;
+            switch (target.id) {
+                case "english":
+                    result= "English selected"
+                    break;
+                    case "maths":
+                    result= "Maths selected"
+                    break;
+                    case "physics":
+                    result= "Physics selected"
+                    break;
+                    case "Chemistry":
+                    result= "Chemistry selected"
+                    break;
+            
+                default:
+                    result= "not selected"
+                    break;
+            }
+
+    output1.textContent= result
+            
+        })
+  // handling of checkbox//
+        checksubject.addEventListener ("change", function(e){
+            e.preventDefault();
+            let targets = e.target;
+               console.log(targets.id);
+               let checkboxresult;
+            switch (targets.id) {
+                case "english-Ck":
+                    result= "English selected"
+                    break;
+                    case "maths-Ck":
+                    result= "Maths selected"
+                    break;
+                    case "physics-Ck":
+                    result= "Physics selected"
+                    break;
+                    case "Chemistry-Ck":
+                    result= "Chemistry selected"
+                    break;
+            
+                default:
+                    result= "not selected"
+                    break;
+            }
+            output2.innerHTML= checkboxresult
+            
+        })
+        // handling of select option//
+        selectedSub.addEventListener("change",function(e){
+            e.preventDefault();
+            output3.textContent= `In select option u selected ${this.value}`;
+        })
+
+    
+    
+
+    </script>
+</body>
+</html>
